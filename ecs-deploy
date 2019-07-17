@@ -274,7 +274,7 @@ function parseImageName() {
 }
 
 function getCurrentTaskDefinition() {
-    if [ $TASK_DEFINITION_JSON != false ]; then
+    if [ "$TASK_DEFINITION_JSON" != false ]; then
       # Get current task definition arn from service
       TASK_DEFINITION_ARN=`$AWS_ECS describe-services --services $SERVICE --cluster $CLUSTER | jq -r .services[0].taskDefinition`
       TASK_DEFINITION=$TASK_DEFINITION_JSON
